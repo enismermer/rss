@@ -1,0 +1,11 @@
+<div class="rss-feed">
+  <h1>Actualités - {{ region }}</h1>
+  <ul>
+    <li *ngFor="let item of rssItems">
+      <a [href]="item.link" target="_blank">{{ item.title }}</a>
+      <p [innerHTML]="item.description"></p>
+      <small>{{ item.pubDate }}</small>
+      <img [src]="item.media" alt="Image associée à l'article" />
+    </li>
+  </ul>
+</div>
