@@ -39,8 +39,11 @@ export class ActualitesComponent implements OnInit {
     });
   }
 
-  loadRSS(url: string): void {
-    this.http.get(url, { responseType: 'text' }).subscribe(data => {
+  async loadRSS(url: string): Promise<void> {
+    try {
+      const response = await fetch(url);
+      const data = await response.text();
+
       const parser = new DOMParser();
       const xml = parser.parseFromString(data, 'text/xml');
       const items = Array.from(xml.querySelectorAll('item'));
@@ -52,7 +55,9 @@ export class ActualitesComponent implements OnInit {
         pubDate: item.querySelector('pubDate')?.textContent,
         media: item.querySelector('content')?.getAttribute('url'), // Ajout de l'élément media
       }));
-    });
+    } catch (error) {
+      console.error('Erreur lors du changement du flux RSS :', error);
+    };
   }
 }
 
