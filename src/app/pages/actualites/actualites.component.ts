@@ -29,6 +29,21 @@ export class ActualitesComponent implements OnInit {
         case 'europe':
           feedUrl = 'https://api.allorigins.win/raw?url=https://www.lemonde.fr/europe/rss_full.xml';
           break;
+        case 'ameriques':
+          feedUrl = 'https://api.allorigins.win/raw?url=https://www.lemonde.fr/ameriques/rss_full.xml';
+          break;
+        case 'afrique':
+          feedUrl = 'https://api.allorigins.win/raw?url=https://www.lemonde.fr/afrique/rss_full.xml';
+          break;
+        case 'proche-orient':
+          feedUrl = 'https://api.allorigins.win/raw?url=https://www.lemonde.fr/proche-orient/rss_full.xml';
+          break;
+        case 'royaume-uni':
+          feedUrl = 'https://api.allorigins.win/raw?url=https://www.lemonde.fr/royaume-uni/rss_full.xml';
+          break;
+        case 'etats-unis':
+          feedUrl = 'https://api.allorigins.win/raw?url=https://www.lemonde.fr/etats-unis/rss_full.xml';
+          break;
         default:
           feedUrl = '';
       }
